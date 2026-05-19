@@ -1,6 +1,6 @@
 // ── Bait Al-Shawaya Al-Yamani — i18n (AR / EN) ──────────────────────────────
 
-window.currentLang = localStorage.getItem('bait_lang') || 'ar';
+window.currentLang = sessionStorage.getItem('bait_lang') || 'ar';
 
 // ── Dish name translations ──────────────────────────────────────────────────
 const DISH_EN = {
@@ -233,7 +233,7 @@ function applyLang(lang) {
   applyAbout(isEn);
   applyDishNames(lang);
 
-  localStorage.setItem('bait_lang', lang);
+  sessionStorage.setItem('bait_lang', lang);
 }
 
 function applyHome(isEn) {
