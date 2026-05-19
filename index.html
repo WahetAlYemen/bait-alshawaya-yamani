@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيت الشواية اليمني | أصل الحكاية</title>
+    <meta name="description" content="سلسلة مطاعم بيت الشواية اليمني في مصر – دجاج مشوي أصيل من الخليج. فروع في فيصل، الدقي، المهندسين، مدينة نصر، العجوزة، أرض اللواء.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header class="header" id="header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            <img src="photoss/logo.webp" alt="بيت الشواية اليمني">
+            <div class="logo-text">
+                <span class="logo-name">بيت الشواية اليمني</span>
+                <span class="logo-sub">من الخليج إلى مصر</span>
+            </div>
+        </a>
+
+        <nav class="nav" aria-label="التنقل الرئيسي">
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="menu.html">قائمة الطعام</a>
+            <a href="branches.html">فروعنا</a>
+            <a href="about.html">من نحن</a>
+            <a href="#social">تواصل معنا</a>
+        </nav>
+
+        <div class="header-cta">
+            <button class="lang-toggle" id="langToggle" onclick="window.toggleLang()">EN</button>
+            <a href="tel:+201115551189" class="header-phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                01115551189
+            </a>
+            <button class="cart-btn" id="cartBtn" aria-label="سلة الطلبات">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <a href="menu.html" class="btn btn-primary">اطلب الآن</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">الرئيسية</a>
+    <a href="menu.html">قائمة الطعام</a>
+    <a href="branches.html">فروعنا</a>
+    <a href="about.html">من نحن</a>
+    <a href="#social">تواصل معنا</a>
+    <a href="tel:+201115551189">اتصل: 01115551189</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO — VIDEO BACKGROUND
+══════════════════════════════════════════ -->
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="photoss/AQOl94ol4ShiGX2UI-oHutsNzuYUyq0Pq9IiJ-OntsYDpfxuYfYoSerTKm8VWRDsDLPKtbWD2mRMYmPT2hd285tnMOqrbBM0ijWUpCR4xj8VKw.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content container">
+        <div class="hero-badge">الأصل من الخليج العربي</div>
+        <h1 class="hero-title">
+            <span>بيت الشواية</span><br>اليمني
+        </h1>
+        <p class="hero-subtitle">دجاج مشوي أصيل · أرز بسمتي مع توابل الخليج · طعم لا يُنسى</p>
+        <div class="hero-actions">
+            <a href="menu.html" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                قائمة الطعام
+            </a>
+            <a href="branches.html" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                فروعنا
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section class="about section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img-wrap reveal">
+                <div class="about-img-placeholder">
+                    <div class="ph-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                </div>
+                <div class="about-img-badge">
+                    الأفضل في<br>الشواية اليمنية
+                </div>
+            </div>
+            <div class="about-text-col reveal reveal-delay-2">
+                <span class="about-label">قصتنا</span>
+                <h2 class="about-title">أصل الحكاية<br>من الخليج إلى مصر</h2>
+                <p class="about-text">
+                    بدأت حكاية بيت الشواية اليمني بشغف حقيقي وحب أصيل للمشويات اليمنية التي تجمع بين أجود الخامات وأعرق التوابل الخليجية. انطلقنا لنحضر إلى مصر تجربة فريدة من نوعها في عالم الدجاج المشوي.
+                </p>
+                <p class="about-text">
+                    اليوم تنتشر فروعنا في أرجاء القاهرة والجيزة، لنقدم لكم أشهى الوجبات بأعلى جودة وأكثر الأسعار تنافسية – كل وجبة تحمل طعم الأصالة وعطر البهارات اليمنية.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">شواية يومية طازجة</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">توابل خليجية أصيلة</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">توصيل سريع لباب بيتك</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">تقييمات عملاء ممتازة</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">دفع كاش أو بطاقة</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg class="about-feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="about-feature-text">مفتوح حتى الساعة 2 ص</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FEATURED DISHES
+══════════════════════════════════════════ -->
+<section class="featured section" id="featured">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">أشهر أطباقنا</span>
+            <h2 class="section-title">اختيارات على ذوقك</h2>
+            <p class="section-desc">من الدجاج المشوي الأصيل بالأرز البسمتي إلى الوجبات المميزة، كل طبق حكاية تستحق التذوق.</p>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-gem"></div>
+                <div class="divider-line"></div>
+            </div>
+        </div>
+
+        <div class="featured-grid">
+            <!-- Card 1 -->
+            <div class="featured-card reveal" data-dish-goto="grilled-2" style="cursor:pointer;" onclick="window.location.href='menu.html?dish=grilled-2'">
+                <div class="featured-img-wrap">
+                    <img src="photoss/lss.jpeg" alt="دجاجة كاملة مع أرز بخاري" loading="lazy">
+                    <div class="featured-img-overlay"></div>
+                    <span class="featured-tag">الأكثر طلباً</span>
+                </div>
+                <div class="featured-body">
+                    <h3 class="featured-name">دجاجة كاملة مع أرز بخاري</h3>
+                    <p class="featured-desc">دجاجة مشوية كاملة مع أرز بسمتي أصفر متبل بأجود التوابل الخليجية</p>
+                    <div class="featured-footer">
+                        <span class="featured-price">550 <small>جنيه</small></span>
+                        <a href="menu.html?dish=grilled-2" class="featured-link" onclick="event.stopPropagation()">اطلب الآن ←</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="featured-card reveal reveal-delay-2" data-dish-goto="featured-1" style="cursor:pointer;" onclick="window.location.href='menu.html?dish=featured-1'">
+                <div class="featured-img-wrap">
+                    <img src="photoss/eee.jpeg" alt="وجبة بيت الشواية" loading="lazy">
+                    <div class="featured-img-overlay"></div>
+                    <span class="featured-tag" style="background:var(--gold);color:#1a0a00;">عرض خاص</span>
+                </div>
+                <div class="featured-body">
+                    <h3 class="featured-name">وجبة بيت الشواية</h3>
+                    <p class="featured-desc">وجبة مميزة من الدجاج مع الخبز والبطاطس المقلية والحمص وصوص الثومية</p>
+                    <div class="featured-footer">
+                        <span class="featured-price">288 <small>جنيه</small></span>
+                        <a href="menu.html?dish=featured-1" class="featured-link" onclick="event.stopPropagation()">اطلب الآن ←</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="featured-card reveal reveal-delay-3" data-dish-goto="grilled-6" style="cursor:pointer;" onclick="window.location.href='menu.html?dish=grilled-6'">
+                <div class="featured-img-wrap featured-img-placeholder">
+                    <div class="ph-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <div class="featured-img-overlay"></div>
+                    <span class="featured-tag">قيمة رائعة</span>
+                </div>
+                <div class="featured-body">
+                    <h3 class="featured-name">نص دجاجة مع أرز ميكس</h3>
+                    <p class="featured-desc">نصف دجاجة مشوية مع الأرز المتبل والمقبلات، بهجة على مائدتك</p>
+                    <div class="featured-footer">
+                        <span class="featured-price">305 <small>جنيه</small></span>
+                        <a href="menu.html?dish=grilled-6" class="featured-link" onclick="event.stopPropagation()">اطلب الآن ←</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top:48px;">
+            <a href="menu.html" class="btn btn-outline">عرض القائمة الكاملة</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BRANCHES PREVIEW
+══════════════════════════════════════════ -->
+<section class="branches-preview section" id="branches">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">فروعنا</span>
+            <h2 class="section-title">نحن في كل مكان</h2>
+            <p class="section-desc">6 فروع في القاهرة والجيزة لنكون دائماً قريبين منك.</p>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-gem"></div>
+                <div class="divider-line"></div>
+            </div>
+        </div>
+
+        <div class="branches-grid">
+
+            <!-- Branch 1 -->
+            <div class="branch-card reveal" data-branch-goto="faisal" title="اضغط للطلب من هذا الفرع">
+                <div class="branch-photo branch-slideshow">
+                    <div class="branch-slide active" style="background-image:url('photoss/فيصل.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/فيصل 1.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/فيصل 2.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-photo-overlay"></div>
+                    <div class="branch-photo-name">
+                        <span class="branch-area">فيصل · الجيزة</span>
+                        <span class="branch-name">الفرع الرئيسي</span>
+                    </div>
+                    <div class="branch-rating">4.0 ★ <span style="color:var(--text-dim);font-weight:400">(1,131)</span></div>
+                </div>
+                <div class="branch-body">
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>2 شارع محمد عفيفي، العشرين، فيصل</span>
+                    </div>
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>يومياً: 11 ص – 2 ص</span>
+                    </div>
+                    <div class="branch-actions">
+                        <a href="tel:+201115551189" class="branch-btn branch-btn-call">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                            اتصل
+                        </a>
+                        <a href="https://maps.app.goo.gl/iWreuZ5mdG64mVzm6" target="_blank" class="branch-btn branch-btn-map">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            الموقع
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branch 2 -->
+            <div class="branch-card reveal reveal-delay-1" data-branch-goto="doqqi" title="اضغط للطلب من هذا الفرع">
+                <div class="branch-photo branch-slideshow">
+                    <div class="branch-slide active"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">١</span></div></div>
+                    <div class="branch-slide"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">٢</span></div></div>
+                    <div class="branch-slide"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">٣</span></div></div>
+                    <div class="branch-slide"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">٤</span></div></div>
+                    <div class="branch-slide"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">٥</span></div></div>
+                    <div class="branch-slide"><div class="slide-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="slide-ph-label">٦</span></div></div>
+                    <div class="branch-photo-overlay"></div>
+                    <div class="branch-photo-name">
+                        <span class="branch-area">الدقي · الجيزة</span>
+                        <span class="branch-name">فرع الدقي</span>
+                    </div>
+                    <div class="branch-rating">4.2 ★ <span style="color:var(--text-dim);font-weight:400">(593)</span></div>
+                </div>
+                <div class="branch-body">
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>8 شارع إيران، الدقي، الجيزة</span>
+                    </div>
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>يومياً: 11 ص – 2 ص</span>
+                    </div>
+                    <div class="branch-actions">
+                        <a href="tel:+201153334389" class="branch-btn branch-btn-call">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                            اتصل
+                        </a>
+                        <a href="https://maps.app.goo.gl/EJshu9t71rL8Kb8j9" target="_blank" class="branch-btn branch-btn-map">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            الموقع
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branch 3 -->
+            <div class="branch-card reveal reveal-delay-2" data-branch-goto="nasr" title="اضغط للطلب من هذا الفرع">
+                <div class="branch-photo branch-slideshow">
+                    <div class="branch-slide active" style="background-image:url('photoss/نصر.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/نصر 2.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/نصر 3.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/نصر 4.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-slide" style="background-image:url('photoss/نصر 5.jpeg');background-size:cover;background-position:center;"></div>
+                    <div class="branch-photo-overlay"></div>
+                    <div class="branch-photo-name">
+                        <span class="branch-area">مدينة نصر · القاهرة</span>
+                        <span class="branch-name">فرع مدينة نصر</span>
+                    </div>
+                    <div class="branch-rating">4.5 ★ <span style="color:var(--text-dim);font-weight:400">(107)</span></div>
+                </div>
+                <div class="branch-body">
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>75 أبو داوود الظاهري، المنطقة السادسة، مدينة نصر</span>
+                    </div>
+                    <div class="branch-info-row">
+                        <svg class="branch-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>يومياً: 11 ص – 2 ص</span>
+                    </div>
+                    <div class="branch-actions">
+                        <a href="tel:+201222606500" class="branch-btn branch-btn-call">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                            اتصل
+                        </a>
+                        <a href="https://maps.app.goo.gl/bfuuThjFVd86i2m37" target="_blank" class="branch-btn branch-btn-map">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            الموقع
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:48px;">
+            <a href="branches.html" class="btn btn-outline">عرض جميع الفروع الستة</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SOCIAL MEDIA SECTION
+══════════════════════════════════════════ -->
+<section class="social-section" id="social">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">تابعنا</span>
+            <h2 class="section-title">كن جزءاً من عائلتنا</h2>
+            <p class="section-desc">تابعنا على منصات التواصل وكن أول من يعرف العروض والأخبار الجديدة.</p>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-gem"></div>
+                <div class="divider-line"></div>
+            </div>
+        </div>
+        <div class="social-tiles">
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/baitalshawaya" target="_blank" rel="noopener" class="social-tile social-tile-fb reveal">
+                <div class="social-tile-shine"></div>
+                <div class="social-tile-icon">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </div>
+                <div class="social-tile-name">فيسبوك</div>
+                <div class="social-tile-handle">@baitalshawaya</div>
+                <div class="social-tile-stat">29K</div>
+                <div class="social-tile-stat-label">متابع</div>
+                <span class="social-tile-btn">تابعنا الآن</span>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@beatelshawaia2?_r=1&_t=ZS-96U086iGCgu" target="_blank" rel="noopener" class="social-tile social-tile-tk reveal reveal-delay-1">
+                <div class="social-tile-shine"></div>
+                <div class="social-tile-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>
+                </div>
+                <div class="social-tile-name">تيك توك</div>
+                <div class="social-tile-handle">@beatelshawaia2</div>
+                <div class="social-tile-stat" style="font-size:1.2rem;margin-top:4px;">أحدث الفيديوهات</div>
+                <div class="social-tile-stat-label">شاهد محتوانا</div>
+                <span class="social-tile-btn">تابعنا الآن</span>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/baitalshawaya?igsh=MW1tbzN5dzRrbWRyYg==" target="_blank" rel="noopener" class="social-tile social-tile-ig reveal reveal-delay-2">
+                <div class="social-tile-shine"></div>
+                <div class="social-tile-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </div>
+                <div class="social-tile-name">انستغرام</div>
+                <div class="social-tile-handle">@baitalshawaya</div>
+                <div class="social-tile-stat" style="font-size:1.2rem;margin-top:4px;">صور وفيديوهات</div>
+                <div class="social-tile-stat-label">تابعنا</div>
+                <span class="social-tile-btn">تابعنا الآن</span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/201115551189" target="_blank" rel="noopener" class="social-tile social-tile-wa reveal reveal-delay-3">
+                <div class="social-tile-shine"></div>
+                <div class="social-tile-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.533 5.85L.052 23.197a.75.75 0 00.929.929l5.347-1.481A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                </div>
+                <div class="social-tile-name">واتساب</div>
+                <div class="social-tile-handle">01115551189</div>
+                <div class="social-tile-stat" style="font-size:1.1rem;margin-top:4px;">اطلب أو استفسر</div>
+                <div class="social-tile-stat-label">ردّ سريع</div>
+                <span class="social-tile-btn">راسلنا الآن</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CTA SECTION
+══════════════════════════════════════════ -->
+<section class="cta-section">
+    <div class="cta-bg">
+        <img src="photoss/ss.jpg" alt="بيت الشواية اليمني" loading="lazy">
+        <div class="cta-overlay"></div>
+    </div>
+    <div class="container cta-content">
+        <h2 class="cta-title reveal">جاهز لتجربة<br>الطعم الأصيل؟</h2>
+        <p class="cta-subtitle reveal reveal-delay-1">شاوينا بشغف، بهارنا باتقان، وقدمنا بابتسامة – كل يوم بدون استثناء.</p>
+        <div class="cta-actions reveal reveal-delay-2">
+            <a href="menu.html" class="btn btn-primary">شوف القائمة</a>
+            <a href="branches.html" class="btn btn-gold">اقرب فرع ليك</a>
+        </div>
+        <div class="social-links reveal reveal-delay-3">
+            <a href="https://www.facebook.com/baitalshawaya" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                فيسبوك
+            </a>
+            <a href="https://www.tiktok.com/@beatelshawaia2?_r=1&_t=ZS-96U086iGCgu" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>
+                تيك توك
+            </a>
+            <a href="https://www.instagram.com/baitalshawaya?igsh=MW1tbzN5dzRrbWRyYg==" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                انستغرام
+            </a>
+            <a href="mailto:belshawaya@gmail.com" class="social-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                راسلنا
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="photoss/logo.webp" alt="بيت الشواية اليمني">
+                    <div class="logo-text">
+                        <span class="logo-name">بيت الشواية اليمني</span>
+                        <span class="logo-sub">أصل الحكاية</span>
+                    </div>
+                </a>
+                <p class="footer-tagline">دجاج مشوي أصيل من الخليج العربي، نقدمه بشغف كل يوم في فروعنا المنتشرة بالقاهرة والجيزة.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/baitalshawaya" target="_blank" rel="noopener" class="footer-social-btn" aria-label="فيسبوك">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@beatelshawaia2?_r=1&_t=ZS-96U086iGCgu" target="_blank" rel="noopener" class="footer-social-btn" aria-label="تيك توك">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.16 8.16 0 004.77 1.52V6.75a4.85 4.85 0 01-1-.06z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/baitalshawaya?igsh=MW1tbzN5dzRrbWRyYg==" target="_blank" rel="noopener" class="footer-social-btn" aria-label="انستغرام">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="tel:+201115551189" class="footer-social-btn" aria-label="اتصل بنا">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                    </a>
+                    <a href="mailto:belshawaya@gmail.com" class="footer-social-btn" aria-label="البريد الإلكتروني">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="footer-title">روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="menu.html">قائمة الطعام</a></li>
+                    <li><a href="branches.html">فروعنا</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-title">الفروع الرئيسية</h3>
+                <ul class="footer-links">
+                    <li><a href="branches.html">فرع فيصل</a></li>
+                    <li><a href="branches.html">فرع الدقي</a></li>
+                    <li><a href="branches.html">فرع المهندسين</a></li>
+                    <li><a href="branches.html">فرع مدينة نصر</a></li>
+                    <li><a href="branches.html">فرع العجوزة</a></li>
+                    <li><a href="branches.html">فرع أرض اللواء</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-title">تواصل معنا</h3>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.45-1.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                    <span>01115551189</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>belshawaya@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>يومياً: 11 ص – 2 ص</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>القاهرة والجيزة، مصر</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 بيت الشواية اليمني · جميع الحقوق محفوظة</p>
+            <div class="footer-bottom-links">
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">الشروط والأحكام</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ── CART OVERLAY + DRAWER ── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-head">
+        <h3 class="cart-drawer-title">سلة طلبك</h3>
+        <button class="cart-drawer-close" id="cartClose" aria-label="إغلاق">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <div class="cart-drawer-body">
+        <div class="cart-empty" id="cartEmpty">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <p>سلتك فارغة</p>
+            <a href="menu.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 24px;">شوف القائمة</a>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+    <div class="cart-drawer-foot hidden" id="cartFooter">
+        <div class="cart-total-row">
+            <span>الإجمالي</span>
+            <span class="cart-total-num" id="cartTotalAmount">0 جنيه</span>
+        </div>
+        <p class="cart-cod-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            الدفع كاش عند التوصيل
+        </p>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" id="checkoutBtn">إتمام الطلب</button>
+    </div>
+</div>
+
+<!-- ── CHECKOUT OVERLAY + MODAL ── -->
+<div class="checkout-overlay" id="checkoutOverlay"></div>
+<div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal-head">
+        <button class="checkout-back" id="checkoutBack">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            رجوع
+        </button>
+        <h3>تأكيد الطلب</h3>
+        <button class="checkout-close" id="checkoutClose" aria-label="إغلاق">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <div class="checkout-modal-body">
+        <div>
+            <h4 class="co-section-title">بياناتك</h4>
+            <div class="co-fields">
+                <div class="co-field">
+                    <label data-i18n-label="name">الاسم <span class="co-required">*</span></label>
+                    <input type="text" id="custName" placeholder="اسمك" data-i18n-ph="name">
+                </div>
+                <div class="co-field">
+                    <label data-i18n-label="phone">رقم هاتفك <span class="co-required">*</span></label>
+                    <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" dir="ltr">
+                </div>
+                <div class="co-field">
+                    <label data-i18n-label="address">عنوانك بالتفصيل <span class="co-required">*</span></label>
+                    <textarea id="custAddress" rows="2" placeholder="اسم الشارع، رقم العمارة، الدور، الشقة..." data-i18n-ph="address"></textarea>
+                </div>
+                <div class="co-field">
+                    <label data-i18n-label="notes">ملاحظات <span class="co-optional">(اختياري)</span></label>
+                    <textarea id="custNotes" rows="2" placeholder="توابل أكتر، بدون حار..." data-i18n-ph="notes"></textarea>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class="co-section-title">ملخص الطلب</h4>
+            <div class="co-order-list" id="checkoutSummary"></div>
+            <div class="co-total-box">
+                <div class="co-total-row">
+                    <span>إجمالي الأصناف</span>
+                    <strong id="checkoutTotal">0 جنيه</strong>
+                </div>
+                <div class="co-total-row">
+                    <span>رسوم التوصيل</span>
+                    <span class="co-delivery-note">تُحدد عند التواصل</span>
+                </div>
+            </div>
+            <div class="co-cod-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                الدفع كاش عند استلام الطلب
+            </div>
+        </div>
+    </div>
+    <div class="checkout-modal-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" id="checkoutSubmit">
+            إتمام الطلب
+        </button>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
