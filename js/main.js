@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Cart System ──
     const CART_KEY = 'bait_shawaya_cart';
     const CART_BRANCH_KEY = 'bait_cart_branch';
-    const FREE_DELIVERY_THRESHOLD = 1000;
     const UPSELL_ITEMS = [
         { id: 'upsell-water',   name: 'مياه معدنية',   price: 10 },
         { id: 'upsell-juice',   name: 'عصير طازج',     price: 35 },
@@ -151,25 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = total;
             el.classList.toggle('show', total > 0);
         });
-    }
-
-    function updateDeliveryBar() {
-        const wrap = document.getElementById('cartDelivery');
-        const fill = document.getElementById('cartDeliveryFill');
-        const msg  = document.getElementById('cartDeliveryMsg');
-        if (!wrap || !fill || !msg) return;
-        if (cart.length === 0) { wrap.hidden = true; return; }
-        wrap.hidden = false;
-        const total = cartTotal();
-        const pct   = Math.min(100, (total / FREE_DELIVERY_THRESHOLD) * 100);
-        fill.style.width = pct + '%';
-        if (total >= FREE_DELIVERY_THRESHOLD) {
-            wrap.classList.add('delivery-free');
-            msg.textContent = 'مبروك! التوصيل مجاني على طلبك';
-        } else {
-            wrap.classList.remove('delivery-free');
-            msg.textContent = `أضف ${(FREE_DELIVERY_THRESHOLD - total).toFixed(0)} جنيه للتوصيل المجاني`;
-        }
     }
 
     function renderUpsell() {
@@ -386,7 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
             if (totalEl) totalEl.textContent = cartTotal().toFixed(0) + ' جنيه';
         }
-        updateDeliveryBar();
         renderUpsell();
     }
 
@@ -434,6 +413,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (totalEl) totalEl.textContent = cartTotal().toFixed(0) + ' جنيه';
     }
 
+    function showOrderSuccess(orderNum) {
+        const isAr = window.currentLang !== 'en';
+        let overlay = document.getElementById('orderSuccessOverlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.id = 'orderSuccessOverlay';
+            overlay.className = 'order-success-overlay';
+            document.body.appendChild(overlay);
+        }
+        overlay.innerHTML = `
+            <div class="order-success-box">
+                <div class="order-success-icon">✅</div>
+                <h2 class="order-success-title">${isAr ? 'تم إرسال طلبك!' : 'Order Sent!'}</h2>
+                <div class="order-success-num">
+                    ${isAr ? 'رقم طلبك' : 'Order Number'}
+                    <strong>#${orderNum}</strong>
+                </div>
+                <p class="order-success-msg">${isAr ? 'سيتم التواصل معك قريباً لتأكيد طلبك وتحديد موعد التوصيل' : 'We will contact you shortly to confirm your order and arrange delivery'}</p>
+                <button class="btn btn-primary order-success-close" onclick="document.getElementById('orderSuccessOverlay').classList.remove('show')">${isAr ? 'حسناً' : 'OK'}</button>
+            </div>
+        `;
+        overlay.classList.add('show');
+        overlay.onclick = e => { if (e.target === overlay) overlay.classList.remove('show'); };
+    }
+
     window.submitOrder = async function() {
         const isAr    = window.currentLang !== 'en';
         const name    = document.getElementById('custName')?.value.trim();
@@ -447,55 +451,71 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartBrId = localStorage.getItem(CART_BRANCH_KEY) || sessionStorage.getItem(BRANCH_KEY) || '';
         const branch   = BRANCHES[cartBrId]?.name || 'لم يحدد';
 
-        let lines = [
-            '🛵 *طلب جديد من الموقع*',
-            `👤 الاسم: ${name}`,
-            `📞 الهاتف: ${phone}`,
-            `📍 العنوان: ${address}`,
-            `🏪 الفرع: ${branch}`,
-            '',
-            '*🧾 الطلب:*'
-        ];
-        cart.forEach(i => lines.push(`  • ${i.qty}× ${i.name} — ${(i.qty * i.price).toFixed(0)} جنيه`));
-        lines.push('', `💰 *الإجمالي: ${cartTotal().toFixed(0)} جنيه*`, '💵 الدفع: كاش عند التوصيل');
-        if (notes) lines.push(`📝 ملاحظات: ${notes}`);
+        const TG_BOT  = '8945375110:AAGfLSgrsTRo5rhPnoQpV2p4AyyS4jJCMgs';
+        const TG_CHAT = '-1003531365639';
+        const ORDER_BASE = 9019;
 
-        const msg = lines.join('\n');
-
-        // ── Loading state ─────────────────────────────────────────────────────
         const btn = document.getElementById('checkoutSubmit');
         const originalText = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = '⏳ جاري الإرسال...'; }
 
-        // ── Send to Telegram ──────────────────────────────────────────────────
         try {
-            const res = await fetch('https://api.telegram.org/bot8945375110:AAGfLSgrsTRo5rhPnoQpV2p4AyyS4jJCMgs/sendMessage', {
+            // Step 1: Send placeholder to claim a message_id (global sequential counter)
+            const res = await fetch(`https://api.telegram.org/bot${TG_BOT}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: '-1003531365639',
-                    text: msg,
-                    parse_mode: 'Markdown'
-                })
+                body: JSON.stringify({ chat_id: TG_CHAT, text: '⏳' })
             });
-
             if (!res.ok) throw new Error('Telegram API error');
+            const tgData   = await res.json();
+            const msgId    = tgData?.result?.message_id || 1;
+            const orderNum = ORDER_BASE + msgId;
 
-            // ── Success ───────────────────────────────────────────────────────
-            if (btn) { btn.textContent = '✅ تم إرسال طلبك بنجاح!'; btn.style.background = '#1a8a4a'; }
+            // Step 2: Build full message with order number
+            let lines = [
+                `📦 *رقم الطلب: #${orderNum}*`,
+                '',
+                '🛵 *طلب جديد من الموقع*',
+                `👤 الاسم: ${name}`,
+                `📞 الهاتف: ${phone}`,
+                `📍 العنوان: ${address}`,
+                `🏪 الفرع: ${branch}`,
+                '',
+                '*🧾 الطلب:*'
+            ];
+            cart.forEach(i => lines.push(`  • ${i.qty}× ${i.name} — ${(i.qty * i.price).toFixed(0)} جنيه`));
+            lines.push('', `💰 *الإجمالي: ${cartTotal().toFixed(0)} جنيه*`, '💵 الدفع: كاش عند التوصيل');
+            if (notes) lines.push(`📝 ملاحظات: ${notes}`);
+            const fullMsg = lines.join('\n');
 
-            setTimeout(() => {
-                cart = [];
-                saveCart();
-                updateCartBadge();
-                closeCheckout();
-                closeCart();
-                if (btn) { btn.disabled = false; btn.textContent = originalText; btn.style.background = ''; }
-            }, 2500);
+            // Step 3: Edit placeholder with full order details
+            try {
+                await fetch(`https://api.telegram.org/bot${TG_BOT}/editMessageText`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TG_CHAT, message_id: msgId, text: fullMsg, parse_mode: 'Markdown' })
+                });
+            } catch (e) {
+                // Fallback: send as new message if edit fails
+                await fetch(`https://api.telegram.org/bot${TG_BOT}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TG_CHAT, text: fullMsg, parse_mode: 'Markdown' })
+                });
+            }
+
+            // Step 4: Clear cart, close modals, show success
+            cart = [];
+            saveCart();
+            updateCartBadge();
+            closeCheckout();
+            closeCart();
+            if (btn) { btn.disabled = false; btn.textContent = originalText; }
+            showOrderSuccess(orderNum);
 
         } catch (err) {
             if (btn) { btn.disabled = false; btn.textContent = originalText; }
-            alert('حدث خطأ أثناء إرسال الطلب. تحقق من اتصالك بالإنترنت وحاول مجدداً.');
+            alert(isAr ? 'حدث خطأ أثناء إرسال الطلب. تحقق من اتصالك بالإنترنت وحاول مجدداً.' : 'An error occurred. Please check your connection and try again.');
         }
     };
 
@@ -617,19 +637,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             طلبك من: <strong class="cart-branch-name"></strong>`;
         cartDrawerBody.insertBefore(branchBarEl, cartDrawerBody.firstChild);
-
-        // Delivery bar — inserted after empty state
-        const deliveryEl = document.createElement('div');
-        deliveryEl.id = 'cartDelivery';
-        deliveryEl.className = 'cart-delivery-wrap';
-        deliveryEl.hidden = true;
-        deliveryEl.innerHTML = `
-            <p class="cart-delivery-msg" id="cartDeliveryMsg"></p>
-            <div class="cart-delivery-track">
-                <div class="cart-delivery-fill" id="cartDeliveryFill" style="width:0%"></div>
-            </div>`;
-        const emptyEl = document.getElementById('cartEmpty');
-        cartDrawerBody.insertBefore(deliveryEl, emptyEl ? emptyEl.nextSibling : null);
 
         // Upsell chips — appended at end of drawer body
         const upsellEl = document.createElement('div');
